@@ -1,9 +1,11 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <h1> Add New Score <h1>
-  <form action="" method="post">{% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Save" />
-  </form>
+
+    <h3> Add New Score </h3>
+      <form action="" method="post">{% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" class="btn btn-primary" value="Save" />
+      </form>
+
 {% endblock %}

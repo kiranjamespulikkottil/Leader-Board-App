@@ -1,10 +1,26 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  {% for score in object_list %}
-    <div class="score-entry">
-      <h2><a href="{% url 'score_detail' score.pk %}">{{ score.name }}</a><h2>
-      <p>{{ score.score }}</p>
-    </div>
-  {% endfor %}
+  <div class="jumbotron">
+    <table class="table table-bordered" style="text-align: center">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Score</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for score in object_list %}
+        <div class="score-entry">
+            <tr>
+              <td><a href="{% url 'score_detail' score.pk %}">{{ score.name }}</a></td>
+              <td><p>{{ score.score }}</p></td>
+            </tr>
+        </div>
+        {% endfor %}
+      </tbody>
+    </table>
+    <p><a href="{% url 'score_add' %}" class="btn btn-primary" role="button" style="color:white">Add Score</a></p>
+  </div>
+
 {% endblock content %}
